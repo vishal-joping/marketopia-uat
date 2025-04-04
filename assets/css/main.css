@@ -451,7 +451,7 @@ p {
     .header__bottom_navbar {
         position: absolute;
         top: 100%;
-        left: -100%;
+        left: -105%;
         min-height: 100vh;
         min-width: 300px;
         background-color: var(--btn-clr);
@@ -3457,5 +3457,17 @@ p {
     padding: 8px 16px;
     height: 100%;
     display: flex;
+    align-items: center;
+}
+
+.user-review-avatar {
+    font-size: 30px;
+    color: honeydew;
+    border: 2px solid;
+    border-radius: 12px;
+    height: 50px;
+    width: 50px;
+    display: flex!important;
+    justify-content: center;
     align-items: center;
 }

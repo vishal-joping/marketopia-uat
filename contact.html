@@ -20,6 +20,51 @@
     <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css" />
     <!-- --------- Link Custom css -->
     <link rel="stylesheet" href="assets/css/main.css" />
+    <script>
+        function toggleOptions() {
+            var options = document.getElementById('customSelect').getElementsByClassName('select-options')[0];
+            options.style.display = options.style.display === 'none' ? 'block' : 'none';
+        }
+        let selectedServiceValue = "";
+
+        function selectOption(option) {
+            selectedServiceValue = option.innerText;
+            var selectedValue = option.innerText;
+            var selectStyled = document.getElementById('customSelect').getElementsByClassName('select-styled')[0];
+            selectStyled.innerText = selectedValue;
+            toggleOptions();
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const msg = document.getElementById("msg").value;
+
+            if (!name) {
+                alert("Enter your name")
+            } else if (!email) {
+                alert("Enter your email address")
+            } else if (!selectedServiceValue) {
+                alert("Select your service")
+            } else if (!msg) {
+                alert("Enter your message")
+            }
+
+            if (name && email && selectedServiceValue && msg) {
+                emailjs.send("service_ky9u4m4", "template_o05d3mx", {
+                        name: name,
+                        email: email,
+                        service: selectedServiceValue,
+                        message: msg
+                    }, "t27vD6IWccChzSYVJ")
+                    .then((response) => {
+                        alert("Thanks for reaching out! We'll review your message and get back to you.")
+                    })
+                    .catch((error) => {});
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -157,40 +202,58 @@
                 <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-up" data-aos-delay="200" data-aos-offset="0" data-aos-duration="1000">
                     <div class="contact__form">
                         <h5 class="t__28">Get In Touch Here</h5>
-                        <form action="">
+                        <form action="" id="myForm">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Your Name" />
+                                    <input type="text" id="name" required placeholder="Your Name" />
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" placeholder="Your Email" />
+                                    <input type="email" id="email" required placeholder=" Your Email " />
                                 </div>
-                                <div class="col-12">
-                                    <div class="custom-select" id="customSelect">
-                                        <div class="select-styled" onclick="toggleOptions()">
+                                <div class="col-12 ">
+                                    <div class="custom-select " id="customSelect">
+                                        <div class="select-styled " onclick="toggleOptions()">
                                             <span> Your Service</span>
-                                            <i class="fa-solid fa-caret-down"></i>
+                                            <i class="fa-solid fa-caret-down "></i>
                                         </div>
-                                        <ul class="select-options">
-                                            <li class="select-option" onclick="selectOption(this)">
-                                                Option 1
+                                        <ul class="select-options ">
+                                            <li class="select-option " onclick="selectOption(this) ">
+                                                Social Media Marketing (SMM)
                                             </li>
-                                            <li class="select-option" onclick="selectOption(this)">
-                                                Option 2
+                                            <li class="select-option " onclick="selectOption(this) ">
+                                                Website & SEO
                                             </li>
-                                            <li class="select-option" onclick="selectOption(this)">
-                                                Option 3
+                                            <li class="select-option " onclick="selectOption(this) ">
+                                                Google My Business (GMB) Optimization
+                                            </li>
+                                            <li class="select-option " onclick="selectOption(this) ">
+                                                Graphic Designing & Video Editing
+                                            </li>
+                                            <li class="select-option " onclick="selectOption(this) ">
+                                                Product Photography
+                                            </li>
+                                            <li class="select-option " onclick="selectOption(this) ">
+                                                Direct Marketing & Telesales
+                                            </li>
+                                            <li class="select-option " onclick="selectOption(this) ">
+                                                Email & Mail Marketing
+                                            </li>
+                                            <li class="select-option " onclick="selectOption(this) ">
+                                                Newspaper & Broadcasting Marketing
+                                            </li>
+                                            <li class="select-option " onclick="selectOption(this) ">
+                                                Billboard Marketing
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <textarea name="" id="" placeholder="Your Message"></textarea>
+                                <div class="col-12 ">
+                                    <textarea name=" " id="msg" placeholder="Your Message " required></textarea>
                                 </div>
                                 <div>
-                                    <button class="common__btn">
+                                    <button class="common__btn " onclick="submitForm(event)">
                       Send Your Message
-                      <img src="assets/icons/arrow-up-right.svg" alt="" />
+                      <img src="assets/icons/arrow-up-right.svg " alt=" " />
                     </button>
                                 </div>
                             </div>
@@ -203,27 +266,27 @@
     <!-- --------------- End Contact From ----------- -->
 
     <!-- --------------- Start Map ------------- -->
-    <section class="map py__130">
+    <section class="map py__130 ">
     </section>
     <!-- --------------- End Map --------------- -->
 
     <!-- --------------- start Footer ----------- -->
-    <footer class="footer">
-        <div class="container">
+    <footer class="footer ">
+        <div class="container ">
             <!-- Subscribe Form -->
-            <div class="subscribe">
-                <div class="row">
-                    <div class="col-lg-8">
+            <div class="subscribe ">
+                <div class="row ">
+                    <div class="col-lg-8 ">
                         <h2>Get in Touch</h2>
-                        <p class="fs-5 mt-2">Ready to elevate your brand? Contact us today and let Marketopia transform your digital marketing strategy with our expertise and personalized approach.
+                        <p class="fs-5 mt-2 ">Ready to elevate your brand? Contact us today and let Marketopia transform your digital marketing strategy with our expertise and personalized approach.
                         </p>
                     </div>
-                    <div class="col-lg-4 mt-5 mt-lg-0">
-                        <a href="./contact.html">
+                    <div class="col-lg-4 mt-5 mt-lg-0 ">
+                        <a href="./contact.html ">
                             <div>
-                                <button class="common__btn">
+                                <button class="common__btn ">
               <span>Contact Us</span>
-              <img src="assets/icons/arrow-up-rignt-black.svg" alt="" />
+              <img src="assets/icons/arrow-up-rignt-black.svg " alt=" " />
             </button>
                             </div>
                         </a>
@@ -233,90 +296,90 @@
             <!-- Subscribe Form -->
 
             <!-- -------Logo and socal icon -->
-            <div class="row footer__lo_co">
-                <div class="col-12">
-                    <div class="d-flex justify-content-center">
-                        <a href="" class="d-flex align-items-center footer__logo">
-                            <img src="assets/img/logo_white.svg" alt="" />
-                            <h5 class="ps-2">MARKETOPIA</h5>
+            <div class="row footer__lo_co ">
+                <div class="col-12 ">
+                    <div class="d-flex justify-content-center ">
+                        <a href=" " class="d-flex align-items-center footer__logo ">
+                            <img src="assets/img/logo_white.svg " alt=" " />
+                            <h5 class="ps-2 ">MARKETOPIA</h5>
                         </a>
                     </div>
-                    <ul class="d-flex justify-content-center gap-3 footer__socal">
+                    <ul class="d-flex justify-content-center gap-3 footer__socal ">
                         <li>
-                            <a href="" target="_blank">
-                                <i class="fa-brands fa-facebook-f"></i>
+                            <a href="https://www.facebook.com/profile.php?id=61575024203365" target="_blank">
+                                <i class="fa-brands fa-facebook-f "></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/company/marketopia-marketing" target="_blank">
-                                <i class="fa-brands fa-linkedin-in"></i>
+                            <a href="https://www.linkedin.com/company/marketopia-marketing " target="_blank ">
+                                <i class="fa-brands fa-linkedin-in "></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.instagram.com/marketopia.llp" target="_blank">
-                                <i class="fa-brands fa-instagram"></i>
+                            <a href="https://www.instagram.com/marketopia.llp " target="_blank ">
+                                <i class="fa-brands fa-instagram "></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://youtube.com/@marketopia-llp?si=gDlPbGih8uHnRXdk" target="_blank">
-                                <i class="fa-brands fa-square-youtube"></i>
+                            <a href="https://youtube.com/@marketopia-llp?si=gDlPbGih8uHnRXdk " target="_blank ">
+                                <i class="fa-brands fa-square-youtube "></i>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
             <!-- -------Logo and socal icon -->
-            <hr class="footer__border" />
+            <hr class="footer__border " />
             <!-- ---- Info -->
-            <div class="row footer__info">
-                <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-                    <div class="footer__info_address">
-                        <h3 class="footer__info_group">Address</h3>
+            <div class="row footer__info ">
+                <div class="col-lg-4 col-md-6 mb-5 mb-lg-0 ">
+                    <div class="footer__info_address ">
+                        <h3 class="footer__info_group ">Address</h3>
                         <p>45, 46 Rangin park co so, near Kiran Motors Ltd, opp Rajpath club, Bodakdev, Ahmedabad-380015
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 ">
                     <div>
-                        <h3 class="footer__info_group">Our Contact</h3>
-                        <ul class="footer__info_contact">
+                        <h3 class="footer__info_group ">Our Contact</h3>
+                        <ul class="footer__info_contact ">
                             <li>
-                                <a href="mailto:info@marketopia.in" class="d-flex align-items-center footer-links">
-                                    <i class="fa-solid fa-envelope"></i>
-                                    <p class="ps-2 footer-links">info@marketopia.in</p>
+                                <a href="mailto:info@marketopia.in " class="d-flex align-items-center footer-links ">
+                                    <i class="fa-solid fa-envelope "></i>
+                                    <p class="ps-2 footer-links ">info@marketopia.in</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="tel:+91 8460960970" class="d-flex align-items-center footer-links">
-                                    <i class="fa-solid fa-phone"></i>
-                                    <p class="ps-2 footer-links">+91 8460960970</p>
+                                <a href="tel:+91 8460960970 " class="d-flex align-items-center footer-links ">
+                                    <i class="fa-solid fa-phone "></i>
+                                    <p class="ps-2 footer-links ">+91 8460960970</p>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 ">
                     <div>
-                        <h3 class="footer__info_group">Quick Links</h3>
+                        <h3 class="footer__info_group ">Quick Links</h3>
                         <ul>
                             <li>
-                                <a href="index.html" class="footer-links">Home</a>
+                                <a href="index.html " class="footer-links ">Home</a>
                             </li>
                             <li>
-                                <a href="services.html" class="footer-links">Services</a>
+                                <a href="services.html " class="footer-links ">Services</a>
                             </li>
                             <li>
-                                <a href="about.html" class="footer-links">About</a>
+                                <a href="about.html " class="footer-links ">About</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+                <div class="col-lg-2 col-md-6 mb-5 mb-lg-0 ">
                     <div>
-                        <h3 class="footer__info_group">Help</h3>
+                        <h3 class="footer__info_group ">Help</h3>
                         <ul>
                             <li>
-                                <a href="contact.html" class="footer-links">Contact Us</a>
+                                <a href="contact.html " class="footer-links ">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -324,12 +387,12 @@
             </div>
             <!-- ---- Info -->
 
-            <div class="row footer__copyright">
-                <div class="col-12">
-                    <hr class="footer__border" />
-                    <p class="text-center">
+            <div class="row footer__copyright ">
+                <div class="col-12 ">
+                    <hr class="footer__border " />
+                    <p class="text-center ">
                         © Copyright 2025 All Rights Reserved by
-                        <a href="">MARKETOPIA</a>
+                        <a href=" ">MARKETOPIA</a>
                     </p>
                 </div>
             </div>
@@ -338,18 +401,20 @@
     <!-- --------------- End Footer ----------- -->
 
     <!-- --------- Link jquery Js -->
-    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="./assets/js/jquery-1.12.4.min.js "></script>
     <!-- --------- Link Bootstrap Js -->
-    <script src="assets/bootstrap/bootstrap.min.js"></script>
+    <script src="./assets/bootstrap/bootstrap.min.js "></script>
 
     <!-- --------- Link slick slider Js -->
-    <script src="assets/js/slick.min.js"></script>
+    <script src="./assets/js/slick.min.js "></script>
 
     <!-- --------- Link aos animation -->
-    <script src="assets/js/aos.js"></script>
+    <script src="./assets/js/aos.js "></script>
 
     <!-- --------- Link custom Js -->
-    <script src="assets/js/main.js"></script>
+    <script src="./assets/js/main.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 </body>
 
 </html>
