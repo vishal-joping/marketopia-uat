@@ -451,7 +451,7 @@ p {
     .header__bottom_navbar {
         position: absolute;
         top: 100%;
-        left: -105%;
+        left: -125%;
         min-height: 100vh;
         min-width: 300px;
         background-color: var(--btn-clr);
